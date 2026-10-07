@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zixiao Xu</title>
+  <meta name="description" content="Zixiao Xu — M.S. in Applied Analytics at Columbia University. Finance, investing, and data analytics.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <style>
+    :root {
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --text: #1c1917;
+      --muted: #78716c;
+      --border: #e7e5e4;
+      --accent: #2563eb;
+      --radius: 14px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0c0a09;
+        --surface: #1c1917;
+        --text: #f5f5f4;
+        --muted: #a8a29e;
+        --border: #292524;
+        --accent: #60a5fa;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 72px 20px 48px; position: relative; }
+
+    /* 语言切换：html[lang=en] 时隐藏 .zh，html[lang=zh-CN] 时隐藏 .en */
+    html[lang="en"] .zh, html[lang="zh-CN"] .en { display: none !important; }
+    .lang-toggle {
+      position: absolute; top: 24px; right: 20px;
+      font: inherit; font-size: 13px; cursor: pointer;
+      padding: 4px 12px; border-radius: 999px;
+      background: var(--surface); color: var(--text); border: 1px solid var(--border);
+    }
+    .lang-toggle:hover { border-color: var(--accent); }
+
+    header { display: flex; gap: 24px; align-items: center; margin-bottom: 56px; }
+    .avatar {
+      width: 88px; height: 88px; flex-shrink: 0; border-radius: 50%;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      display: grid; place-items: center;
+      color: #fff; font-size: 34px; font-weight: 600;
+      object-fit: cover;
+    }
+    h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; }
+    .tagline { color: var(--muted); margin-top: 4px; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 10px; font-size: 15px; }
+
+    section { margin-bottom: 48px; }
+    h2 {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
+    }
+    p + p { margin-top: 12px; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .card {
+      padding: 18px 20px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    }
+    .card h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; line-height: 1.4; }
+    .card p { font-size: 14px; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .tag {
+      font-size: 12px; padding: 2px 8px; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--muted);
+    }
+
+    ul.timeline { list-style: none; }
+    ul.timeline li { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    ul.timeline li:last-child { border-bottom: none; }
+    .when { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 150px; white-space: nowrap; font-size: 14px; padding-top: 2px; }
+    .what strong { font-weight: 600; }
+    .role { color: var(--muted); font-size: 14px; }
+    .what p { font-size: 14px; margin-top: 4px; }
+
+    footer { color: var(--muted); font-size: 13px; padding-top: 24px; border-top: 1px solid var(--border); }
+
+    @media (max-width: 520px) {
+      .wrap { padding: 64px 16px 32px; }
+      .lang-toggle { top: 16px; right: 16px; }
+      header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      ul.timeline li { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">
+      <span class="en">中文</span><span class="zh">English</span>
+    </button>
+
+    <header>
+      <!-- 想用照片：把下面这行换成 <img class="avatar" src="avatar.jpg" alt="Zixiao Xu">，并把 avatar.jpg 放到同一目录 -->
+      <div class="avatar" aria-hidden="true">ZX</div>
+      <div>
+        <h1><span class="en">Zixiao Xu</span><span class="zh">徐子骁</span></h1>
+        <p class="tagline">
+          <span class="en">M.S. Applied Analytics @ Columbia · Finance × Data</span>
+          <span class="zh">哥伦比亚大学应用分析硕士在读 · 金融 × 数据分析</span>
+        </p>
+        <nav class="links">
+          <a href="mailto:esssssential@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/essexu">LinkedIn</a>
+        </nav>
+      </div>
+    </header>
+
+    <section>
+      <h2><span class="en">About</span><span class="zh">关于我</span></h2>
+      <div class="en">
+        <p>I'm pursuing an M.S. in Applied Analytics at Columbia University, after earning a B.S. in Business (Finance & Information Systems) from Indiana University's Kelley School of Business.</p>
+        <p>My internships span private equity, investment banking, management consulting, and corporate finance. I'm interested in combining financial analysis with data and technology to help companies make better decisions.</p>
+      </div>
+      <div class="zh">
+        <p>我目前在哥伦比亚大学攻读应用分析硕士，本科毕业于印第安纳大学凯利商学院，主修金融与信息系统。</p>
+        <p>实习经历覆盖私募股权、投资银行、管理咨询和企业财务。我希望把金融分析和数据、技术工具结合起来，帮企业做出更好的决策。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="en">Education</span><span class="zh">教育</span></h2>
+      <ul class="timeline">
+        <li>
+          <span class="when"><span class="en">Sep 2025 – Dec 2026</span><span class="zh">2025.09 — 2026.12</span></span>
+          <div class="what">
+            <strong><span class="en">Columbia University</span><span class="zh">哥伦比亚大学</span></strong>
+            <div class="role">
+              <span class="en">M.S. in Applied Analytics · GPA 4.0/4.0 · New York, NY</span>
+              <span class="zh">应用分析 硕士 · GPA 4.0/4.0 · 纽约</span>
+            </div>
+            <p>
+              <span class="en">Applied Machine Learning, Business Analysis, Python for Data Analysis, Corporate Strategy and Analysis</span>
+              <span class="zh">应用机器学习、商业分析、Python 数据分析、企业战略与分析</span>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="when"><span class="en">Aug 2021 – May 2025</span><span class="zh">2021.08 — 2025.05</span></span>
+          <div class="what">
+            <strong><span class="en">Indiana University Bloomington, Kelley School of Business</span><span class="zh">印第安纳大学伯明顿分校 · 凯利商学院</span></strong>
+            <div class="role">
+              <span class="en">B.S. in Business, Finance & Information Systems · GPA 3.7/4.0</span>
+              <span class="zh">金融 & 信息系统 双专业 本科 · GPA 3.7/4.0</span>
+            </div>
+            <p>
+              <span class="en">Equity and Fixed Income Investments, Intermediate Corporate Finance, Intermediate Investments, Financial Reporting</span>
+              <span class="zh">股权与固定收益投资、中级公司金融、中级投资学、财务报告</span>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="en">Experience</span><span class="zh">实习经历</span></h2>
+      <ul class="timeline">
+        <li>
+          <span class="when"><span class="en">Jul 2026 – Sep 2026</span><span class="zh">2026.07 — 2026.09</span></span>
+          <div class="what">
+            <strong><span class="en">PwC Management Consulting (Shanghai)</span><span class="zh">普华永道管理咨询（上海）</span></strong>
+            <div class="role"><span class="en">Summer Intern, Enterprise Applications Consulting</span><span class="zh">企业咨询部 · 暑期实习生</span></div>
+            <p>
+              <span class="en">Supported the digital transformation of a leading Chinese aviation manufacturer: process and operating-model analysis, digital solution design, and competitor benchmarking.</span>
+              <span class="zh">参与一家领先航空制造企业的数字化转型项目，负责业务流程分析、数字化方案设计和竞品研究。</span>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="when"><span class="en">Jul 2025 – Aug 2025</span><span class="zh">2025.07 — 2025.08</span></span>
+          <div class="what">
+            <strong><span class="en">Wuxi Autowell Technology</span><span class="zh">无锡奥特维科技</span></strong>
+            <div class="role"><span class="en">Summer Intern, Accounting</span><span class="zh">财务部 · 暑期实习生</span></div>
+            <p>
+              <span class="en">Supported the H1 2025 performance review, flagged key divisional risks, and proposed AI-enabled dynamic budgeting and gross margin forecasting.</span>
+              <span class="zh">参与集团 2025 年上半年经营分析，梳理核心风险点，并提出用 AI 工具优化动态预算和毛利预测的建议。</span>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="when"><span class="en">Jun 2025 – Jul 2025</span><span class="zh">2025.06 — 2025.07</span></span>
+          <div class="what">
+            <strong><span class="en">Ping An Securities</span><span class="zh">平安证券</span></strong>
+            <div class="role"><span class="en">TMT Summer Analyst, Investment Banking</span><span class="zh">投资银行事业部 TMT 组 · 暑期分析师</span></div>
+            <p>
+              <span class="en">Helped draft IPO prospectuses and equity financing proposals; worked across IPOs, follow-on offerings, and convertible bonds.</span>
+              <span class="zh">参与招股说明书和融资方案的编写，接触 IPO、再融资、可转债等股权融资工具。</span>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="when"><span class="en">Jun 2024 – Aug 2024</span><span class="zh">2024.06 — 2024.08</span></span>
+          <div class="what">
+            <strong>EQT Private Capital Asia</strong>
+            <div class="role"><span class="en">Summer Analyst, Private Equity</span><span class="zh">私募部 · 暑期分析师</span></div>
+            <p>
+              <span class="en">Evaluated 10+ TMT and healthcare targets, benchmarked companies in liquid cooling &amp; storage, and supported post-acquisition work for Hydron Contact Lenses.</span>
+              <span class="zh">评估了 10 余家 TMT 和医疗健康行业的潜在标的，完成液冷与存储赛道的对标研究，并参与海昌隐形眼镜的投后工作。</span>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="when"><span class="en">Jul 2023 – Aug 2023</span><span class="zh">2023.07 — 2023.08</span></span>
+          <div class="what">
+            <strong><span class="en">Ernst &amp; Young (China) Advisory</span><span class="zh">安永（中国）咨询</span></strong>
+            <div class="role"><span class="en">Summer Intern, SAP FICO Consulting</span><span class="zh">科技咨询部 · SAP FICO 实习生</span></div>
+            <p>
+              <span class="en">Supported an SAP implementation for SP Chemicals: requirements gathering, system configuration, and unit/integration/UAT testing.</span>
+              <span class="zh">参与新浦化学 SAP 系统上线，负责需求分析、系统配置和单元、集成、用户验收测试。</span>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="when"><span class="en">Jun 2023 – Jul 2023</span><span class="zh">2023.06 — 2023.07</span></span>
+          <div class="what">
+            <strong><span class="en">China Industrial Bank, Wuxi Branch</span><span class="zh">兴业银行无锡分行</span></strong>
+            <div class="role"><span class="en">Summer Analyst, Investment Banking</span><span class="zh">投行部 · 暑期实习生</span></div>
+            <p>
+              <span class="en">Assisted on a convertible bond financing for Autowell (688516.SS) and Impro Precision's (01286.HK) acquisition of Northern Co.</span>
+              <span class="zh">协助奥特维（688516.SH）可转债配资业务，以及鹰普精密（01286.HK）收购新会北部精机。</span>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="en">Projects</span><span class="zh">项目</span></h2>
+      <div class="cards">
+        <div class="card">
+          <h3><span class="en">Equity Portfolio Optimization &amp; Risk-Return Analysis</span><span class="zh">多资产投资组合与风险收益分析</span></h3>
+          <p>
+            <span class="en">Built the efficient frontier and Capital Allocation Line from 10 years of data on 10 stocks, comparing results with and without short-selling constraints.</span>
+            <span class="zh">基于 10 只股票 10 年历史数据，构建有效前沿和资本配置线，并对比有无卖空限制下的组合表现。</span>
+          </p>
+          <div class="tags"><span class="tag">Excel Solver</span><span class="tag">CAPM</span><span class="tag">Mean-Variance</span></div>
+        </div>
+        <div class="card">
+          <h3><span class="en">WD-40 Leveraged Buyout Analysis</span><span class="zh">WD-40 杠杆收购（LBO）分析</span></h3>
+          <p>
+            <span class="en">Two-stage APV model valuing the levered firm at $3.85B (+19.6% vs. unlevered); designed a $3.3B offer and full financing structure.</span>
+            <span class="zh">用 APV 法搭建两阶段估值模型，杠杆后估值 38.5 亿美元（比无杠杆高 19.6%），并设计 33 亿美元报价和完整融资结构。</span>
+          </p>
+          <div class="tags"><span class="tag">APV</span><span class="tag">LBO</span><span class="tag">Sensitivity</span></div>
+        </div>
+        <div class="card">
+          <h3><span class="en">Capital Budgeting Risk Analysis</span><span class="zh">资本预算风险分析</span></h3>
+          <p>
+            <span class="en">Built an FCF model for a 5-year project and used scenario and two-way sensitivity analysis to identify the key NPV drivers.</span>
+            <span class="zh">为一个 5 年期项目搭建自由现金流模型，通过情景分析和双变量敏感性分析，找出影响 NPV 的关键因素。</span>
+          </p>
+          <div class="tags"><span class="tag">NPV / IRR</span><span class="tag">Scenario Manager</span><span class="tag">Excel</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="en">Skills</span><span class="zh">技能</span></h2>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">NoSQL</span><span class="tag">R</span>
+        <span class="tag">C#</span><span class="tag">VBA</span><span class="tag">HTML / CSS</span>
+        <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Machine Learning</span>
+        <span class="tag">Tableau</span><span class="tag">Excel (Pivot, Power Query)</span><span class="tag">SAP FICO</span>
+        <span class="tag">Mendix</span><span class="tag">Lucidchart</span><span class="tag">Lightroom</span>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="en">Interests</span><span class="zh">兴趣爱好</span></h2>
+      <p>
+        <span class="en">Basketball, photography, hiking, swimming, snowboarding, guitar, and the Chinese bamboo flute (Grade 8).</span>
+        <span class="zh">篮球、摄影、徒步、游泳、滑雪、吉他，竹笛八级。</span>
+      </p>
+    </section>
+
+    <footer>
+      © <span id="year">2026</span> <span class="en">Zixiao Xu</span><span class="zh">徐子骁</span> · Hosted on GitHub Pages
+    </footer>
+  </main>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    var titles = { 'en': 'Zixiao Xu', 'zh-CN': '徐子骁 · 个人主页' };
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.title = titles[lang];
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+    try {
+      var saved = localStorage.getItem('lang');
+      if (saved === 'zh-CN') setLang('zh-CN');
+    } catch (e) {}
+    document.getElementById('langToggle').addEventListener('click', function () {
+      setLang(document.documentElement.lang === 'en' ? 'zh-CN' : 'en');
+    });
+  </script>
+</body>
+</html>
